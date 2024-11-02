@@ -11,7 +11,7 @@ class TBQuestionnaire {
     "Compromised immune system?": 3,
   };
 
-  Map<String, bool> responses = {};
+  Map<String, dynamic> responses = {};
 
   int calculateRiskScore() {
     int score = 0;
@@ -21,6 +21,22 @@ class TBQuestionnaire {
       }
     });
     return score;
+  }
+
+  TBQuestionnaire() {
+    resetResponses(); // Ensure responses map is initialized
+  }
+
+  // void resetResponses() {
+  //   responses = {};
+  //   //responses.clear();
+  //   //responses = {for (var question in questions.keys) question: false};
+  // }
+  void resetResponses() {
+    responses.clear();
+    responses = {
+      for (var question in questions.keys) question: null
+    }; // Set each question's response to null or false
   }
 
   String getRecommendation() {

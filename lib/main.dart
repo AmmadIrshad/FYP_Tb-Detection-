@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tb_detection/screens/home_screen.dart';
+import 'package:tb_detection/screens/tb_questionnaire_screen.dart';
 import 'package:tb_detection/screens/splash_screen.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       home: const SplashScreen(),
       routes: {
         '/home': (context) =>
-            TBQuestionnaireScreen(), // Define your home screen route
+            const TBQuestionnaireScreen(), // Define your home screen route
       },
     );
   }

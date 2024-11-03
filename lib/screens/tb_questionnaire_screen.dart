@@ -12,7 +12,7 @@ class TBQuestionnaireScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('TB Risk Assessment'),
+        title: const Text('TB Risk Assessment'),
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       ),
       body: Padding(
@@ -45,12 +45,12 @@ class TBQuestionnaireScreen extends StatelessWidget {
                                       ? Colors.green
                                       : Theme.of(context)
                                           .colorScheme
-                                          .surfaceVariant,
+                                          .surfaceContainerHighest,
                               foregroundColor: Theme.of(context)
                                   .colorScheme
                                   .onSurface, // Text color
                             ),
-                            child: Text("Yes"),
+                            child: const Text("Yes"),
                           ),
                           const SizedBox(width: 8),
                           ElevatedButton(
@@ -65,12 +65,12 @@ class TBQuestionnaireScreen extends StatelessWidget {
                                       ? Colors.red
                                       : Theme.of(context)
                                           .colorScheme
-                                          .surfaceVariant,
+                                          .surfaceContainerHighest,
                               foregroundColor: Theme.of(context)
                                   .colorScheme
                                   .onSurface, // Text color
                             ),
-                            child: Text("No"),
+                            child: const Text("No"),
                           ),
                         ],
                       ),
@@ -97,8 +97,8 @@ class TBQuestionnaireScreen extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: Text("Incomplete Form"),
-                      content: Text(
+                      title: const Text("Incomplete Form"),
+                      content: const Text(
                           "Please answer all questions before submitting."),
                       actions: [
                         TextButton(
@@ -119,7 +119,7 @@ class TBQuestionnaireScreen extends StatelessWidget {
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 foregroundColor: Theme.of(context).colorScheme.onPrimary,
               ),
-              child: Text('Submit'),
+              child: const Text('Submit'),
             ),
           ],
         ),

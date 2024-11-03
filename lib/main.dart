@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primaryColor: Colors.blueGrey,
         primarySwatch: Colors.blueGrey,
-        scaffoldBackgroundColor: Color(0xFF121212), // Dark background
+        scaffoldBackgroundColor: const Color(0xFF121212), // Dark background
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.blueGrey.shade900,
           foregroundColor: Colors.white,
@@ -88,7 +88,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system, // Uses system theme mode (light or dark)
       home: const SplashScreen(),
       routes: {
-        '/home': (context) => TBQuestionnaireScreen(),
+        '/home': (context) => const TBQuestionnaireScreen(),
       },
     );
   }

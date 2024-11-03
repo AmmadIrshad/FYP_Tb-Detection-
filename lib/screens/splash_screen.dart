@@ -87,7 +87,7 @@ class _SplashScreenState extends State<SplashScreen>
                     'Tuberculosis',
                     style: TextStyle(
                       fontSize: screenHeight * 0.04, // Responsive font size
-                      color: Colors.black,
+                      color: Theme.of(context).textTheme.titleLarge?.color,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

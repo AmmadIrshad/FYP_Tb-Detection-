@@ -11,7 +11,10 @@ class TBQuestionnaireScreen extends StatelessWidget {
     final questionnaireProvider = Provider.of<QuestionnaireProvider>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('TB Risk Assessment')),
+      appBar: AppBar(
+        title: Text('TB Risk Assessment'),
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -21,8 +24,12 @@ class TBQuestionnaireScreen extends StatelessWidget {
                 children: questionnaireProvider.questions.keys.map((question) {
                   return Card(
                     margin: const EdgeInsets.symmetric(vertical: 8),
+                    color: Theme.of(context).cardColor,
                     child: ListTile(
-                      title: Text(question),
+                      title: Text(
+                        question,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -36,11 +43,16 @@ class TBQuestionnaireScreen extends StatelessWidget {
                                   questionnaireProvider.responses[question] ==
                                           true
                                       ? Colors.green
-                                      : Colors.grey[300],
+                                      : Theme.of(context)
+                                          .colorScheme
+                                          .surfaceVariant,
+                              foregroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .onSurface, // Text color
                             ),
                             child: Text("Yes"),
                           ),
-                          SizedBox(width: 8),
+                          const SizedBox(width: 8),
                           ElevatedButton(
                             onPressed: () {
                               questionnaireProvider.updateResponse(
@@ -51,7 +63,12 @@ class TBQuestionnaireScreen extends StatelessWidget {
                                   questionnaireProvider.responses[question] ==
                                           false
                                       ? Colors.red
-                                      : Colors.grey[300],
+                                      : Theme.of(context)
+                                          .colorScheme
+                                          .surfaceVariant,
+                              foregroundColor: Theme.of(context)
+                                  .colorScheme
+                                  .onSurface, // Text color
                             ),
                             child: Text("No"),
                           ),
@@ -74,8 +91,7 @@ class TBQuestionnaireScreen extends StatelessWidget {
                           ResultScreen(recommendation: recommendation),
                     ),
                   ).then((_) {
-                    questionnaireProvider
-                        .resetResponses(); // Clear responses when returning
+                    questionnaireProvider.resetResponses();
                   });
                 } else {
                   showDialog(
@@ -87,13 +103,22 @@ class TBQuestionnaireScreen extends StatelessWidget {
                       actions: [
                         TextButton(
                           onPressed: () => Navigator.pop(context),
-                          child: Text("OK"),
+                          child: Text(
+                            "OK",
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                          ),
                         ),
                       ],
                     ),
                   );
                 }
               },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
+              ),
               child: Text('Submit'),
             ),
           ],
